@@ -1,0 +1,12 @@
+image: node:12.18.2-stretch
+
+pipelines:
+  branches:
+    master:
+      - step:
+          script:
+            - npm install -g gatsby-cli
+            - npm install -g surge
+            - npm install
+            - npm run build
+            - surge public .surge.sh
