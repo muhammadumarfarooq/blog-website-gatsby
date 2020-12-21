@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Navbar from "../components/Navbar";
 import Blogs from "../components/Blogs";
+import Footer from "../components/Footer";
 
 const Home = ({ data }) => {
   const title = data.allContentfulBlogpost.edges[0].node.title;
@@ -9,6 +10,7 @@ const Home = ({ data }) => {
     <div>
       <Navbar/>
       <Blogs/>
+      <Footer/>
     </div>
   );
 };
