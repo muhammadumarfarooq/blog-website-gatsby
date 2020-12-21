@@ -1,14 +1,13 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from "react";
+import { graphql } from "gatsby";
+import Navbar from "../components/Navbar/Navbar";
 
 const Home = ({ data }) => {
-  const title = data.allContentfulBlogpost.edges[0].node.title
-  return <div>
-    <h1>Blog website</h1>
-    <h2>{title}</h2>
-    <p>This is blog website...</p>
-  </div>
-}
+  const title = data.allContentfulBlogpost.edges[0].node.title;
+  return (
+    <Navbar/>
+  );
+};
 
 export const query = graphql`
   query {
@@ -20,6 +19,6 @@ export const query = graphql`
     }
   }
   }
-`
+`;
 
-export default Home
+export default Home;
