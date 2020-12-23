@@ -1,0 +1,50 @@
+@import "../variables";
+@import "../mixins";
+
+.blog-top {
+  padding-top: 12rem;
+  padding-bottom: 8rem;
+
+  .blog-top-text-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .blog-bg-img {
+    height: 45rem;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .blog-top--title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: $indigo_2;
+  }
+
+  .blog-top--info-text {
+    font-size: 1.6rem;
+    color: #68687b;
+    margin-bottom: 1rem;
+  }
+
+  .blog-top--date {
+    margin-top: 0.9rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #a5a5b0;
+  }
+
+  .excerpt-text-wrapper {
+    max-width: 56.1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  &--social-wrapper {
+    margin-top: 7.6rem;
+  }
+}
