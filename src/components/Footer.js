@@ -61,7 +61,7 @@ const WebsiteInfo = () => {
       </div>
       
       <p color="white-text" className="copyright-text w-400" variant="body9">
-        &copy;2020 Orderspot. All rights reserved.
+        &copy;2020 Blog. All rights reserved.
       </p>
     </div>
   );
