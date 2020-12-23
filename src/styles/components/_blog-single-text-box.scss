@@ -57,9 +57,16 @@
   }
 
   .blog-single-btn {
+    color: $indigo_2;
+    font-size: 1.4rem;
     position: absolute;
     right: 2.6rem;
     bottom: 2.7rem;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
 
     .blog-single--icon {
       width: 3.4rem;

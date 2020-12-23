@@ -1,15 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Navbar from "../components/Navbar";
 import Blogs from "../components/Blogs";
-import Footer from "../components/Footer";
 import Layout from "../components/Layout";
 
 const Home = ({ data }) => {
-  const title = data.allContentfulBlogpost.edges[0].node.title;
+  const posts = data.allContentfulBlogpost.edges;
   return (
     <Layout>
-      <Blogs/>
+      <Blogs posts={posts}/>
     </Layout>
   
   );
@@ -21,6 +19,15 @@ export const query = graphql`
     edges {
       node {
         title
+        slug
+        description
+        date(formatString: "MMMM DD, YYYY")
+        readTime
+        image{
+          file {
+          url
+        }
+        }
       }
     }
   }

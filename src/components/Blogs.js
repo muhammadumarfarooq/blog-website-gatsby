@@ -1,17 +1,13 @@
 import React from 'react';
 import BlogSingle from "./BlogSingle";
 
-const blogData = [];
-const Blogs = () => {
+const Blogs = ({ posts }) => {
   
   return (
     <section className="blogs">
       <div className="container">
         <div className="row">
-          <BlogSingle/>
-          <BlogSingle/>
-          <BlogSingle/>
-          <BlogSingle/>
+          {posts.map((post) => <BlogSingle key={post.slug} post={post}/>)}
         </div>
       </div>
     </section>
