@@ -3,11 +3,7 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 import InputField from "./InputField";
 
-const UserForm = () => {
-  
-  const handleSubmit = (values) => {
-    console.log(values);
-  };
+const UserForm = ({ issigninForm, handleSubmit }) => {
   
   const formSchema = Yup.object().shape({
     password: Yup.string()
@@ -35,7 +31,7 @@ const UserForm = () => {
           return (
             <form onSubmit={handleSubmit} className="user-form">
               <p className="form-wrapper--title">
-                Login
+                {issigninForm ? "Sign In" : "Sign Up"}
               </p>
               
               <div className="input-wrapper">
@@ -67,7 +63,7 @@ const UserForm = () => {
               </div>
               <div className="form-wrapper--btn">
                 <button className="user-form-button" type="submit">
-                  Signin
+                  {issigninForm ? "Sign In" : "Sign Up"}
                 </button>
               </div>
             </form>

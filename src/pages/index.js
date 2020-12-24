@@ -3,6 +3,15 @@ import { graphql } from "gatsby";
 import Blogs from "../components/Blogs";
 import Layout from "../components/Layout";
 
+/*
+* Formik and Yup for forms
+* Gatsby
+* Contentful for CMS
+* Sass
+* Authentication with Firebase
+*
+* */
+
 const Home = ({ data }) => {
   const posts = data.allContentfulBlogpost.edges;
   return (
