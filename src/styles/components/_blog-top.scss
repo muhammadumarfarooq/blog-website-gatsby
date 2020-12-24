@@ -4,6 +4,10 @@
 .blog-top {
   padding-top: 12rem;
   padding-bottom: 8rem;
+  @include respond(tab-port) {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+  }
 
   .blog-top-text-wrapper {
     display: flex;
