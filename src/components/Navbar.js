@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CustomDialog from "./CustomDialog";
+import UserForm from "./UserForm";
 
 
 const Navbar = () => {
@@ -7,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <CustomDialog open={open} handleClose={() => setOpen(false)}>
-        <h1>Dialog</h1>
+        <UserForm/>
       </CustomDialog>
       <h1>Blog</h1>
       <button onClick={() => setOpen(true)}>

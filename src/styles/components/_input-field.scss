@@ -1,0 +1,56 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.input-field {
+  width: 100%;
+
+  label {
+    position: relative;
+    font-weight: 500;
+
+    &:not(.is-solution) {
+      font-size: 1.3rem;
+      color: $blue_2;
+    }
+
+    &.is-solution {
+      font-size: 1.8rem;
+      color: #2c2c46;
+    }
+  }
+
+  &.error {
+    input {
+      border-color: #eb6248;
+    }
+  }
+
+  input {
+    background-color: $white;
+    border: 0.1rem solid $blue_2;
+    border-radius: 0.4rem;
+    padding: 1.235rem 1.884rem;
+    height: 5.5rem;
+    font-size: 1.5rem;
+    color: $headline_indigo;
+    font-weight: 500;
+    @include respond(tab-land) {
+      height: 4.4rem;
+    }
+
+    &::placeholder {
+      font-weight: 300;
+      color: $slate_gray;
+    }
+
+    &:focus {
+      border: 0.1rem solid $blue_2;
+      box-shadow: none;
+    }
+  }
+
+  .helper-text {
+    font-size: 1rem;
+    color: $candy_2;
+  }
+}

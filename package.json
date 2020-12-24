@@ -16,14 +16,18 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "bootstrap": "^4.5.3",
+    "firebase": "^8.2.1",
+    "formik": "^2.2.6",
     "gatsby": "^2.26.1",
+    "gatsby-plugin-firebase": "^0.2.0-beta.4",
     "gatsby-plugin-sass": "^2.8.0",
     "gatsby-source-contentful": "^2.1.85",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-bootstrap": "^1.4.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "prettier": "2.2.1"
