@@ -6,3 +6,14 @@
 @import "mixins";
 @import "base";
 @import "components";
+
+
+//toastify styling
+.Toastify__toast-body {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.Toastify__toast {
+  padding-left: 1.6rem !important;
+}

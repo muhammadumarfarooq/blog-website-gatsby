@@ -1,14 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import firebase from "gatsby-plugin-firebase";
-
 import CustomDialog from "./CustomDialog";
 import UserForm from "./UserForm";
+import UserContext from "../context/user/userContext";
+import { toast } from 'react-toastify';
 
-
-const Navbar = ({ state }) => {
+const Navbar = () => {
+  const { state, handleLoginUser, handleSignoutUser } = useContext(UserContext);
   const [open, setOpen] = useState(false);
   const [issigninForm, setIsSigninForm] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+  
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if ( user ) {
+        //This function is gets called whenever a user is logged in.
+        handleLoginUser(user);
+      } else {
+        //this function gets called whenever user sign out
+        handleSignoutUser();
+      }
+    });
+    
+    toast.error('User signed out successfully');
+    
+    
+  }, []);
+  
   const handleSignupDialogOpen = () => {
     setOpen(true);
     setIsSigninForm(false);
@@ -28,17 +46,26 @@ const Navbar = ({ state }) => {
     const { email, password } = values;
     if ( issigninForm ) {
       try {
-        const resp = await firebase.auth().signInWithEmailAndPassword(email, password);
-        return;
-        
+        await firebase.auth().signInWithEmailAndPassword(email, password);
+      } catch (e) {
+        setErrorMessage(e.message);
+      }
+    } else {
+      try {
+        await firebase.auth().createUserWithEmailAndPassword(email, password);
       } catch (e) {
         setErrorMessage(e.message);
       }
     }
+    
+  };
+  
+  const signoutUser = async () => {
     try {
-      const user = await firebase.auth().createUserWithEmailAndPassword(email, password);
+      await firebase.auth().signOut();
+      toast.error('User signed out successfully');
     } catch (e) {
-      setErrorMessage(e.message);
+      console.log(e);
     }
     
   };
@@ -56,8 +83,7 @@ const Navbar = ({ state }) => {
       
       <div className="nav-buttons-wrapper">
         {state.isUserLoggedIn ? (
-          <button className="nav-action-btns" onClick={() => {
-          }}>
+          <button className="nav-action-btns" onClick={signoutUser}>
             Sign out
           </button>
         ) : (
