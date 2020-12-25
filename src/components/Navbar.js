@@ -81,7 +81,7 @@ const Navbar = () => {
       </CustomDialog>
       <h1>Blog</h1>
       
-      <div className="nav-buttons-wrapper">
+      {state.isUserLoggedIn !== null && <div className="nav-buttons-wrapper">
         {state.isUserLoggedIn ? (
           <button className="nav-action-btns" onClick={signoutUser}>
             Sign out
@@ -96,7 +96,7 @@ const Navbar = () => {
             </button>
           </>
         )}
-      </div>
+      </div>}
     </nav>
   );
 };
