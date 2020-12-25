@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import firebase from "gatsby-plugin-firebase";
+
 import CustomDialog from "./CustomDialog";
 import UserForm from "./UserForm";
 
@@ -17,13 +19,19 @@ const Navbar = () => {
     setIsSigninForm(true);
   };
   
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
+    const { email, password } = values;
     if ( issigninForm ) {
       console.log("LoginForm", values);
       return;
     }
+    try {
+      const user = await firebase.auth().createUserWithEmailAndPassword(email, password);
+      console.log(user);
+    } catch (e) {
+      console.log(e);
+    }
     
-    console.log("Sign up form...");
   };
   
   return (
