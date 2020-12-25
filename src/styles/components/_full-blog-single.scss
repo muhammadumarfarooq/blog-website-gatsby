@@ -47,6 +47,19 @@
     margin-bottom: 2rem;
   }
 
+  &.mask-img {
+    height: 40rem;
+    -webkit-mask-image: linear-gradient(#fff, #fff, rgba(255, 255, 255, 0));
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+.content-wrapper--text {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 1rem 0 5rem 0;
 }
 
 //blog-img
