@@ -7,7 +7,7 @@ const Blogs = ({ posts }) => {
     <section className="blogs">
       <div className="container">
         <div className="row">
-          {posts.map((post) => <BlogSingle key={post.slug} post={post}/>)}
+          {posts.map((post) => <BlogSingle key={post.node.slug} post={post}/>)}
         </div>
       </div>
     </section>

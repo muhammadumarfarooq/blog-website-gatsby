@@ -1,12 +1,12 @@
 import React from 'react';
 import "firebase/auth";
 import './src/styles/global.scss';
-import { Provider as UserProvider } from './src/context/UserContext';
+import UserState from './src/context/user/UserState';
 
 export const wrapRootElement = ({ element }) => {
   return (
-    <UserProvider>
+    <UserState>
       {element}
-    </UserProvider>
+    </UserState>
   );
 };

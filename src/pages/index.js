@@ -9,7 +9,7 @@ import Layout from "../components/Layout";
 * Contentful for CMS
 * Sass
 * Authentication with Firebase
-*
+* Context api
 * */
 
 const Home = ({ data }) => {

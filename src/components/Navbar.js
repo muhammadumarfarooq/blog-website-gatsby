@@ -5,7 +5,7 @@ import CustomDialog from "./CustomDialog";
 import UserForm from "./UserForm";
 
 
-const Navbar = () => {
+const Navbar = ({ state }) => {
   const [open, setOpen] = useState(false);
   const [issigninForm, setIsSigninForm] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -55,12 +55,21 @@ const Navbar = () => {
       <h1>Blog</h1>
       
       <div className="nav-buttons-wrapper">
-        <button className="nav-action-btns" onClick={handleSigninDialogOpen}>
-          Sign In
-        </button>
-        <button className="nav-action-btns" onClick={handleSignupDialogOpen}>
-          Sign Up
-        </button>
+        {state.isUserLoggedIn ? (
+          <button className="nav-action-btns" onClick={() => {
+          }}>
+            Sign out
+          </button>
+        ) : (
+          <>
+            <button className="nav-action-btns" onClick={handleSigninDialogOpen}>
+              Sign In
+            </button>
+            <button className="nav-action-btns" onClick={handleSignupDialogOpen}>
+              Sign Up
+            </button>
+          </>
+        )}
       </div>
     </nav>
   );
