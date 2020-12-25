@@ -9,6 +9,12 @@
   align-items: center;
   position: relative;
 
+  .navbar-link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   h1 {
     font-size: 5rem;
     font-weight: bold;

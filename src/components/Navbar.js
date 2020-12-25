@@ -4,6 +4,7 @@ import CustomDialog from "./CustomDialog";
 import UserForm from "./UserForm";
 import UserContext from "../context/user/userContext";
 import { toast } from 'react-toastify';
+import { Link } from 'gatsby';
 
 const Navbar = () => {
   const { state, handleLoginUser, handleSignoutUser } = useContext(UserContext);
@@ -79,7 +80,9 @@ const Navbar = () => {
           errorMessage={errorMessage}
         />
       </CustomDialog>
-      <h1>Blog</h1>
+      <Link className="navbar-link" to="/">
+        <h1>Blog</h1>
+      </Link>
       
       {state.isUserLoggedIn !== null && <div className="nav-buttons-wrapper">
         {state.isUserLoggedIn ? (
