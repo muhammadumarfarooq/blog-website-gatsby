@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import InputField from "./InputField";
 import { Alert } from "react-bootstrap";
 
-const UserForm = ({ issigninForm, handleSubmit }) => {
+const UserForm = ({ issigninForm, handleSubmit, errorMessage }) => {
   
   const formSchema = Yup.object().shape({
     password: Yup.string()
@@ -32,9 +32,10 @@ const UserForm = ({ issigninForm, handleSubmit }) => {
             return (
               <form onSubmit={handleSubmit} className="user-form">
                 
-                <Alert className={"user-form-alert-message"} variant="danger">
-                  Error Message will ge here...
-                </Alert>
+                {errorMessage && (
+                  <Alert className={"user-form-alert-message"} variant="danger">
+                    {errorMessage}
+                  </Alert> )}
                 
                 <p className="form-wrapper--title">
                   {issigninForm ? "Sign In" : "Sign Up"}

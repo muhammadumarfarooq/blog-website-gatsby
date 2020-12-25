@@ -8,7 +8,7 @@ import UserForm from "./UserForm";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [issigninForm, setIsSigninForm] = useState(false);
-  
+  const [errorMessage, setErrorMessage] = useState(null);
   const handleSignupDialogOpen = () => {
     setOpen(true);
     setIsSigninForm(false);
@@ -19,27 +19,37 @@ const Navbar = () => {
     setIsSigninForm(true);
   };
   
+  const handleCloseDialog = () => {
+    setOpen(false);
+    setErrorMessage(null);
+  };
+  
   const handleSubmit = async (values) => {
     const { email, password } = values;
     if ( issigninForm ) {
-      console.log("LoginForm", values);
-      return;
+      try {
+        const resp = await firebase.auth().signInWithEmailAndPassword(email, password);
+        return;
+        
+      } catch (e) {
+        setErrorMessage(e.message);
+      }
     }
     try {
       const user = await firebase.auth().createUserWithEmailAndPassword(email, password);
-      console.log(user);
     } catch (e) {
-      console.log(e);
+      setErrorMessage(e.message);
     }
     
   };
   
   return (
     <nav className="navbar">
-      <CustomDialog open={open} handleClose={() => setOpen(false)}>
+      <CustomDialog open={open} handleClose={handleCloseDialog}>
         <UserForm
           issigninForm={issigninForm}
           handleSubmit={handleSubmit}
+          errorMessage={errorMessage}
         />
       </CustomDialog>
       <h1>Blog</h1>
