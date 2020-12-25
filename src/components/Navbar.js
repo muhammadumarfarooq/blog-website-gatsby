@@ -21,10 +21,6 @@ const Navbar = () => {
         handleSignoutUser();
       }
     });
-    
-    toast.error('User signed out successfully');
-    
-    
   }, []);
   
   const handleSignupDialogOpen = () => {
@@ -47,12 +43,16 @@ const Navbar = () => {
     if ( issigninForm ) {
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password);
+        toast.success('User signed in successfully.');
+        handleCloseDialog();
       } catch (e) {
         setErrorMessage(e.message);
       }
     } else {
       try {
         await firebase.auth().createUserWithEmailAndPassword(email, password);
+        toast.success('User registered successfully.');
+        handleCloseDialog();
       } catch (e) {
         setErrorMessage(e.message);
       }
